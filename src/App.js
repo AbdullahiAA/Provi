@@ -12,6 +12,7 @@ import ChangePassword from "./pages/ChangePassword/change-password";
 import ICDashboard from "./pages/ICDashboard/ICDashboard";
 import ICSettings from "./pages/ICSettings/ICSettings";
 import SASettings from "./pages/SASettings/SASettings";
+import ICPrintedCards from "./pages/ICPrintedCards/ICPrintedCards";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route path="/ic-dashboard" exact>
           <ICDashboard />
+        </Route>
+        <Route path="/ic-printed-cards" exact>
+          <ICPrintedCards />
         </Route>
         <Route path="/ic-settings" exact>
           <ICSettings />

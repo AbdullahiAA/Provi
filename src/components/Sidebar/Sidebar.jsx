@@ -55,7 +55,7 @@ function Sidebar() {
             </li>
             <li>
               <NavLink
-                to="/printed-cards"
+                to="/ic-printed-cards"
                 className="group flex gap-4 lg:gap-6 items-center py-5 pl-4 lg:pl-8 pr-2 border-l-3 border-transparent transition ease-out duration-500 select-none hover:bg-lgray hover:bg-opacity-8 hover:border-lavender"
               >
                 <svg
