@@ -11,6 +11,7 @@ import ForgotPassword from "./pages/ForgotPassword/forgot-password";
 import ChangePassword from "./pages/ChangePassword/change-password";
 import ICDashboard from "./pages/ICDashboard/ICDashboard";
 import ICSettings from "./pages/ICSettings/ICSettings";
+import SASettings from "./pages/SASettings/SASettings";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route path="/ic-settings" exact>
           <ICSettings />
+        </Route>
+        <Route path="/sa-settings" exact>
+          <SASettings />
         </Route>
         <Route path="/login" exact>
           <Login />
