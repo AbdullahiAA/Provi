@@ -116,13 +116,13 @@ function SASettings() {
 
       <div className="relative lg:max-w-lg mb-1">
         <input
-          type="search"
+          type="text"
           placeholder="Search by Name / Email"
           className="rounded-lg bg-brightGray py-4 px-4 lg:px-7 w-full border-0 text-sm lg:text-base"
         />
 
         <svg
-          className="absolute right-5 top-1/2 transform -translate-y-1/2"
+          className="absolute right-5 top-1/2 transform -translate-y-1/2 pointer-events-none"
           width="24"
           height="24"
           viewBox="0 0 24 24"
