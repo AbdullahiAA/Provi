@@ -13,6 +13,7 @@ import ICDashboard from "./pages/ICDashboard/ICDashboard";
 import ICSettings from "./pages/ICSettings/ICSettings";
 import SASettings from "./pages/SASettings/SASettings";
 import ICPrintedCards from "./pages/ICPrintedCards/ICPrintedCards";
+import BMSettings from "./pages/BMSettings/BMSettings";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path="/sa-settings" exact>
           <SASettings />
+        </Route>
+        <Route path="/bm-settings" exact>
+          <BMSettings />
         </Route>
         <Route path="/login" exact>
           <Login />

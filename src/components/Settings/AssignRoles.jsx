@@ -111,7 +111,7 @@ function AssignRoles() {
         <input
           type="text"
           placeholder="Search by Name / Email"
-          className="rounded-lg bg-brightGray py-4 px-4 lg:px-7 w-full border-0 text-sm lg:text-base"
+          className="rounded-lg bg-brightGray py-3 px-4 lg:px-7 w-full border-0 text-sm lg:text-base"
         />
 
         <svg
@@ -207,22 +207,22 @@ function AssignRoles() {
                 </td>
                 <td>
                   <div className="relative w-fit m-auto">
-                    <span
+                    <button
                       onClick={openMenu}
-                      className={`text-10 font-medium rounded-lg p-2 h-8 w-24 bg-opacity-25 flex items-center justify-center cursor-pointer select-none ${
+                      className={`text-12 font-medium rounded-lg p-1 h-8 w-24 bg-opacity-25 flex items-center justify-center select-none ${
                         row.status === "Active" ? "bg-greenSheen" : "bg-pigment"
                       }`}
                     >
                       {row.status}
-                    </span>
+                    </button>
                     <ul className="menu hidden rounded-lg shadow-menu z-20 py-2 mb-2 w-32 bg-white border-1 absolute top-2 right-3/4">
-                      <li className="p-2.5 flex justify-center items-center text-10 font-bold font-poppins cursor-pointer bg-buyellow text-white transition">
+                      <li className="p-2.5 flex justify-center items-center text-12 font-bold font-poppins cursor-pointer bg-buyellow text-white transition">
                         Active
                       </li>
-                      <li className="p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
+                      <li className="p-2.5 flex justify-center items-center text-12 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
                         Suspend User
                       </li>
-                      <li className="p-2.5 flex justify-center items-center text-10 text-pigment font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
+                      <li className="p-2.5 flex justify-center items-center text-12 text-pigment font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
                         Remove User
                       </li>
                     </ul>

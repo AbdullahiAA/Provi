@@ -34,12 +34,12 @@ body {
 
   ::-webkit-scrollbar-thumb {
     @apply rounded;
-    width: 100%;
     background-color: rgba(47, 68, 79, 0.5);
   }
 
   .table-container::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
   }
 
   .table-container::-webkit-scrollbar-track {
@@ -57,7 +57,7 @@ nav .active svg {
 }
 
 .scrolledTableHead th {
-  @apply p-2 lg:px-4 lg:py-3 uppercase font-bold text-sm text-white bg-buyellow first:rounded-tl-lg last:rounded-tr-lg;
+  @apply p-2 lg:px-4 lg:py-3 uppercase font-bold text-sm text-white bg-buyellow first:rounded-tl-lg last:rounded-tr-lg whitespace-nowrap lg:whitespace-normal;
 }
 
 .scrolledTableBody tr {
@@ -65,5 +65,5 @@ nav .active svg {
 }
 
 .scrolledTableBody td {
-  @apply p-2 lg:px-4 lg:py-3 text-sm font-semibold;
+  @apply p-2 lg:px-4 lg:py-3 text-sm font-semibold whitespace-nowrap lg:whitespace-normal;
 }

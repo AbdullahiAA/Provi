@@ -47,6 +47,7 @@ module.exports = {
         8: "8px",
         10: "10px",
         12: "12px",
+        13: "13px",
       },
       fontWeight: {
         hairline: 100,
@@ -99,6 +100,7 @@ module.exports = {
       },
       boxShadow: {
         menu: "0px 0px 4px rgba(0, 0, 0, 0.25)",
+        btn: "0px 4px 12px rgba(55, 81, 255, 0.24)",
       },
     },
   },

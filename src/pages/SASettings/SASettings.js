@@ -118,7 +118,7 @@ function SASettings() {
         <input
           type="text"
           placeholder="Search by Name / Email"
-          className="rounded-lg bg-brightGray py-4 px-4 lg:px-7 w-full border-0 text-sm lg:text-base"
+          className="rounded-lg bg-brightGray py-3 px-4 lg:px-7 w-full border-0 text-sm lg:text-base"
         />
 
         <svg
