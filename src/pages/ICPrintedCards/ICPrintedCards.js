@@ -167,7 +167,6 @@ function ICPrintedCards() {
           <div className="flex-1">
             <input
               type="date"
-              placeholder="Search by Name / Email"
               className="appearance-none min-w-max rounded-lg bg-brightGray p-4 lg:px-7 w-full border-0 text-sm lg:text-base"
             />
           </div>
@@ -177,7 +176,6 @@ function ICPrintedCards() {
           <div className="flex-1">
             <input
               type="date"
-              placeholder="Search by Name / Email"
               className="appearance-none min-w-max rounded-lg bg-brightGray p-4 lg:px-7 w-full border-0 text-sm lg:text-base"
             />
           </div>

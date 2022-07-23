@@ -15,6 +15,7 @@ import SASettings from "./pages/SASettings/SASettings";
 import ICPrintedCards from "./pages/ICPrintedCards/ICPrintedCards";
 import BMSettings from "./pages/BMSettings/BMSettings";
 import BUSettings from "./pages/BUSettings/BUSettings";
+import BUCards from "./pages/BUCards/BUCards";
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route path="/bu-settings" exact>
           <BUSettings />
+        </Route>
+        <Route path="/bu-cards" exact>
+          <BUCards />
         </Route>
         <Route path="/login" exact>
           <Login />
