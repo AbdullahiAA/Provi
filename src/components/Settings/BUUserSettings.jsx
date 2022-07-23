@@ -1,6 +1,6 @@
 import React from "react";
 
-function UserSettings() {
+function BUUserSettings() {
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -72,6 +72,23 @@ function UserSettings() {
           </div>
         </div>
 
+        <div className="grid grid-cols-2 gap-8 lg:gap-12 max-w-3xl mb-6">
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="branch"
+              className="pl-3 text-lgray text-12 font-semibold uppercase"
+            >
+              Branch
+            </label>
+            <input
+              type="text"
+              placeholder="Mogodo Lagos, Nigeria"
+              id="branch"
+              className="py-3 px-4 rounded-lg outline-0 border border-bgray bg-ibgray text-sm placeholder:text-independence placeholder:text-opacity-40"
+            />
+          </div>
+        </div>
+
         <h3 className="text-base lg:text-lg font-bold my-6 lg:my-8">
           Change Password
         </h3>
@@ -120,4 +137,4 @@ function UserSettings() {
   );
 }
 
-export default UserSettings;
+export default BUUserSettings;
