@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import cardImg from "../../assets/CardImg.png";
 
 function ICPrintedCards() {
+  const [cards, setCards] = useState([]);
+
   function openMenu(e) {
     const parentElement = e.target.parentElement;
     const targetMenu =
@@ -25,6 +27,91 @@ function ICPrintedCards() {
       }
     });
   }
+
+  useEffect(() => {
+    setCards([
+      {
+        id: 1,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 2,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 3,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 4,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 5,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 6,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 7,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 8,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 9,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 10,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 11,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 12,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 13,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 14,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 15,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 16,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+    ]);
+  }, []);
 
   return (
     <PageLayout pageTitle="Cards">
@@ -182,27 +269,10 @@ function ICPrintedCards() {
         </div>
       </div>
 
-      <div className="rounded-lg py-4 px-2 bg-white grid grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4 lg:gap-x-10 lg:gap-y-7">
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
-        <img className="w-full" src={cardImg} alt="Printed card" />
+      <div className="rounded-lg py-4 px-2 bg-white grid grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4 lg:gap-y-7">
+        {cards?.map((card, key) => (
+          <img key={key} className="w-full" src={cardImg} alt="Printed card" />
+        ))}
       </div>
     </PageLayout>
   );
