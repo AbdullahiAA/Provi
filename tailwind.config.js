@@ -86,6 +86,8 @@ module.exports = {
         greenSheen: "#67BBA6",
         error: "#FF0000",
         pigment: "#E81E2A",
+        smokyBlack: "#0F0E0E",
+        romanSilver: "#81819B",
       },
       gap: {
         700: "700px",
