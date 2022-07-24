@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import cardImg from "../../assets/CardImg.png";
 import Modal from "../../components/Modal/Modal";
 
 function BUCards() {
   const [openModal, setOpenModal] = useState(false);
+  const [cards, setCards] = useState([]);
+
+  const [editNameID, setEditNameID] = useState(null);
+
+  function openEditNameModal(cardID) {
+    setOpenModal(true);
+
+    setEditNameID(cardID);
+  }
+
+  function handleEditName(e) {
+    e.preventDefault();
+
+    // Process the edit name form with editNameID to target the selected card item
+  }
 
   function openMenu(e) {
     const parentElement = e.target.parentElement;
@@ -28,6 +43,91 @@ function BUCards() {
       }
     });
   }
+
+  useEffect(() => {
+    setCards([
+      {
+        id: 1,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 2,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 3,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 4,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 5,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 6,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 7,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 8,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 9,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 10,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 11,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 12,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 13,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 14,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 15,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+      {
+        id: 16,
+        cardNumber: "1234567890",
+        holdersName: "Tejiri Meek",
+      },
+    ]);
+  }, []);
 
   return (
     <>
@@ -83,7 +183,7 @@ function BUCards() {
         </div>
 
         <div className="rounded-lg py-4 px-2 bg-white grid grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4 lg:gap-y-7">
-          {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((r, key) => (
+          {cards?.map((card, key) => (
             <div className="flex gap-1 w-full" key={key}>
               <div>
                 <img className="w-full" src={cardImg} alt="Printed card" />
@@ -124,7 +224,7 @@ function BUCards() {
                 <ul className="py-3 w-max rounded-lg bg-white shadow-menu absolute right-3/4 top-3">
                   <li
                     className="py-2 px-4 flex gap-2 items-center cursor-pointer hover:bg-buyellow hover:bg-opacity-25"
-                    onClick={() => setOpenModal(true)}
+                    onClick={() => openEditNameModal(card.id)}
                   >
                     <svg
                       width="15"
@@ -192,9 +292,12 @@ function BUCards() {
       </PageLayout>
 
       <Modal showModal={openModal} closeModal={() => setOpenModal(false)}>
-        <form className="bg-white rounded-lg py-11 px-8 shadow-lg">
+        <form
+          className="bg-white rounded-lg py-11 px-8 shadow-lg"
+          onSubmit={handleEditName}
+        >
           <h3 className="text-xl font-semibold mb-5">
-            Edit Name on card for printing...
+            Edit Name on card for printing... {editNameID}
           </h3>
 
           <input
