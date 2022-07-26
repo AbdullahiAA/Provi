@@ -218,12 +218,12 @@ function BMDashboard() {
       {tableData.length > 0 && (
         <ScrolledTable>
           <ScrolledTableHead>
-            <th>BRANCH</th>
-            <th>BRANCH MANAGER</th>
-            <th>EMAIL</th>
-            <th>BRANCH ID</th>
-            <th>CARD PRINTED</th>
-            <th>TOTAL REQUESTED</th>
+            <th>Id #</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>phone number</th>
+            <th>Account number</th>
+            <th>Expiring Date</th>
           </ScrolledTableHead>
 
           <ScrolledTableBody>
