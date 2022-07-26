@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import cardImg from "../../assets/CardImg.png";
+import useDropdown from "../../hooks/useDropdown";
 
 function BUPrintedCards() {
+  const { hideMenu, showMenu } = useDropdown();
+
   const [cards, setCards] = useState([]);
+
+  function rePrintCard(cardID) {
+    console.log(cardID);
+  }
 
   useEffect(() => {
     setCards([
@@ -132,7 +139,7 @@ function BUPrintedCards() {
           </svg>
         </div>
 
-        <div className="col-span-2 flex-1 flex items-center gap-2 lg:mr-20">
+        <div className="col-span-2 flex-1 flex items-center gap-2 lg:mr-10">
           <span>Filter By:</span>
 
           <div className="flex-1">
@@ -166,6 +173,7 @@ function BUPrintedCards() {
 
             <div className="relative">
               <svg
+                onClick={showMenu}
                 className="cursor-pointer"
                 width="24"
                 height="24"
@@ -174,6 +182,7 @@ function BUPrintedCards() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  className="pointer-event-none"
                   d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
                   stroke="black"
                   strokeWidth="2"
@@ -181,6 +190,7 @@ function BUPrintedCards() {
                   strokeLinejoin="round"
                 />
                 <path
+                  className="pointer-event-none"
                   d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
                   stroke="black"
                   strokeWidth="2"
@@ -188,6 +198,7 @@ function BUPrintedCards() {
                   strokeLinejoin="round"
                 />
                 <path
+                  className="pointer-event-none"
                   d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
                   stroke="black"
                   strokeWidth="2"
@@ -196,8 +207,14 @@ function BUPrintedCards() {
                 />
               </svg>
 
-              <ul className="py-1 w-max rounded-lg bg-white shadow-menu absolute right-3/4 top-3">
-                <li className="py-2 px-4 flex gap-2 items-center cursor-pointer hover:bg-buyellow hover:bg-opacity-25">
+              <ul
+                onClick={hideMenu}
+                className="menu hidden opacity-0 h-0 py-1 w-max rounded-lg bg-white shadow-menu absolute right-3/4 top-3"
+              >
+                <li
+                  onClick={() => rePrintCard(card?.id)}
+                  className="py-2 px-4 flex gap-2 items-center cursor-pointer hover:bg-buyellow hover:bg-opacity-25"
+                >
                   <svg
                     width="15"
                     height="15"

@@ -4,36 +4,30 @@ import ScrolledTable, {
   ScrolledTableBody,
   ScrolledTableHead,
 } from "../../components/Tables/ScrolledTable";
+import useDropdown from "../../hooks/useDropdown";
 
 function SASettings() {
+  const { showMenu, hideMenu } = useDropdown();
   const [tableData, setTableData] = useState([]);
 
-  function openMenu(e) {
-    const parentElement = e.target.parentElement;
-    const targetMenu =
-      parentElement.children[parentElement.children.length - 1];
+  function assignRole(userID, newRole) {
+    console.log(userID, newRole);
 
-    if (targetMenu.classList.contains("hidden") === false) {
-      targetMenu.classList.add("hidden");
-    } else {
-      closeAllMenus();
-      targetMenu.classList.remove("hidden");
-    }
-  }
-
-  function closeAllMenus() {
-    const menus = document.querySelectorAll(".menu");
-
-    menus.forEach((menu) => {
-      if (menu.classList.contains("hidden") === false) {
-        menu.classList.add("hidden");
+    const newTableData = tableData.map((row) => {
+      if (row?.id === userID) {
+        return { ...row, role: newRole };
       }
+
+      return row;
     });
+
+    setTableData(newTableData);
   }
 
   useEffect(() => {
     setTableData([
       {
+        id: 1,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -41,6 +35,7 @@ function SASettings() {
         role: "Global Admin",
       },
       {
+        id: 2,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -48,6 +43,7 @@ function SASettings() {
         role: "Global Admin",
       },
       {
+        id: 3,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -55,6 +51,7 @@ function SASettings() {
         role: "Global Admin",
       },
       {
+        id: 4,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -62,6 +59,7 @@ function SASettings() {
         role: "Global Admin",
       },
       {
+        id: 5,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -69,6 +67,7 @@ function SASettings() {
         role: "Global Admin",
       },
       {
+        id: 6,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -76,6 +75,7 @@ function SASettings() {
         role: "Global Admin",
       },
       {
+        id: 7,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -83,6 +83,7 @@ function SASettings() {
         role: "Global Admin",
       },
       {
+        id: 8,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -90,6 +91,7 @@ function SASettings() {
         role: "Global Admin",
       },
       {
+        id: 9,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -97,6 +99,7 @@ function SASettings() {
         role: "Global Admin",
       },
       {
+        id: 10,
         fullName: "Modupe Femi Akulasah",
         email: "modepef.a@providus.cgi",
         status: "Active",
@@ -169,7 +172,7 @@ function SASettings() {
                   <div className="relative w-fit m-auto">
                     <svg
                       className="cursor-pointer"
-                      onClick={openMenu}
+                      onClick={showMenu}
                       width="24"
                       height="25"
                       viewBox="0 0 24 25"
@@ -201,12 +204,29 @@ function SASettings() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <ul className="menu hidden rounded-lg shadow-menu z-20 py-2 mb-2 w-32 bg-white border-1 absolute top-0 right-8">
-                      <li className="p-2.5 flex justify-center items-center text-10 font-bold font-poppins cursor-pointer bg-buyellow text-white transition">
+                    <ul
+                      onClick={hideMenu}
+                      className="menu hidden opacity-0 h-0 rounded-lg shadow-menu z-20 py-2 mb-2 w-32 bg-white border-1 absolute top-0 right-8"
+                    >
+                      <li
+                        onClick={() => assignRole(row?.id, "Global Admin")}
+                        className={`p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer transition ${
+                          row?.role === "Global Admin"
+                            ? "font-bold bg-buyellow text-white"
+                            : "hover:text-black hover:bg-buyellow hover:bg-opacity-16"
+                        }`}
+                      >
                         Global Admin
                       </li>
 
-                      <li className="p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
+                      <li
+                        onClick={() => assignRole(row?.id, "Internal Control")}
+                        className={`p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer transition ${
+                          row?.role === "Internal Control"
+                            ? "font-bold bg-buyellow text-white"
+                            : "hover:text-black hover:bg-buyellow hover:bg-opacity-16"
+                        }`}
+                      >
                         Internal Control
                       </li>
                     </ul>

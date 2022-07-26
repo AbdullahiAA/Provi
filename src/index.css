@@ -47,23 +47,29 @@ body {
   }
 }
 
-nav .active {
-  @apply bg-lgray bg-opacity-8 border-lavender;
-}
+@layer components {
+  nav .active {
+    @apply bg-lgray bg-opacity-8 border-lavender;
+  }
 
-nav .active span,
-nav .active svg {
-  @apply text-lavender fill-lavender;
-}
+  nav .active span,
+  nav .active svg {
+    @apply text-lavender fill-lavender;
+  }
 
-.scrolledTableHead th {
-  @apply p-2 lg:px-4 lg:py-3 uppercase font-bold text-sm text-white bg-buyellow first:rounded-tl-lg last:rounded-tr-lg whitespace-nowrap lg:whitespace-normal;
-}
+  .scrolledTableHead th {
+    @apply p-2 lg:px-4 lg:py-3 uppercase font-bold text-sm text-white bg-buyellow first:rounded-tl-lg last:rounded-tr-lg whitespace-nowrap lg:whitespace-normal;
+  }
 
-.scrolledTableBody tr {
-  @apply transition hover:bg-brightGray hover:bg-opacity-50;
-}
+  .scrolledTableBody tr {
+    @apply transition hover:bg-brightGray hover:bg-opacity-50;
+  }
 
-.scrolledTableBody td {
-  @apply p-2 lg:px-4 lg:py-3 text-sm font-semibold whitespace-nowrap lg:whitespace-normal;
+  .scrolledTableBody td {
+    @apply p-2 lg:px-4 lg:py-3 text-sm font-semibold whitespace-nowrap lg:whitespace-normal;
+  }
+
+  .menu {
+    @apply transition duration-500;
+  }
 }

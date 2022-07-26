@@ -31,7 +31,7 @@ function Modal({ showModal, closeModal, children }) {
     <>
       <div
         ref={overlay}
-        className="hidden z-50 fixed w-screen h-screen top-0 bg-smokyBlack bg-opacity-50 transition"
+        className="hidden z-50 fixed top-0 right-0 left-0 bottom-0 w-screen h-screen bg-smokyBlack bg-opacity-50 transition"
         onClick={closeModal}
       />
 

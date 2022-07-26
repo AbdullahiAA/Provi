@@ -2,47 +2,29 @@ import React, { useEffect, useState } from "react";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import cardImg from "../../assets/CardImg.png";
 import Modal from "../../components/Modal/Modal";
+import useDropdown from "../../hooks/useDropdown";
 
 function BUCards() {
+  const { hideMenu, showMenu } = useDropdown();
+
   const [openModal, setOpenModal] = useState(false);
+  const [openSuccessModal, setOpenSuccessModal] = useState(false);
   const [cards, setCards] = useState([]);
 
-  const [editNameID, setEditNameID] = useState(null);
-
-  function openEditNameModal(cardID) {
-    setOpenModal(true);
-
-    setEditNameID(cardID);
-  }
+  const [editNameID, setEditNameID] = useState("");
+  const [editNameVal, setEditNameVal] = useState("");
 
   function handleEditName(e) {
     e.preventDefault();
 
-    // Process the edit name form with editNameID to target the selected card item
+    console.log(editNameID);
+    console.log(editNameVal);
+
+    setOpenModal(false);
+    setOpenSuccessModal(true);
   }
 
-  function openMenu(e) {
-    const parentElement = e.target.parentElement;
-    const targetMenu =
-      parentElement.children[parentElement.children.length - 1];
-
-    if (targetMenu.classList.contains("hidden") === false) {
-      targetMenu.classList.add("hidden");
-    } else {
-      closeAllMenus();
-      targetMenu.classList.remove("hidden");
-    }
-  }
-
-  function closeAllMenus() {
-    const menus = document.querySelectorAll(".menu");
-
-    menus.forEach((menu) => {
-      if (menu.classList.contains("hidden") === false) {
-        menu.classList.add("hidden");
-      }
-    });
-  }
+  function printCard(cardID) {}
 
   useEffect(() => {
     setCards([
@@ -191,6 +173,7 @@ function BUCards() {
 
               <div className="relative">
                 <svg
+                  onClick={showMenu}
                   className="cursor-pointer"
                   width="24"
                   height="24"
@@ -199,6 +182,7 @@ function BUCards() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
+                    className="pointer-events-none"
                     d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
                     stroke="black"
                     strokeWidth="2"
@@ -206,6 +190,7 @@ function BUCards() {
                     strokeLinejoin="round"
                   />
                   <path
+                    className="pointer-events-none"
                     d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
                     stroke="black"
                     strokeWidth="2"
@@ -213,6 +198,7 @@ function BUCards() {
                     strokeLinejoin="round"
                   />
                   <path
+                    className="pointer-events-none"
                     d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
                     stroke="black"
                     strokeWidth="2"
@@ -221,10 +207,18 @@ function BUCards() {
                   />
                 </svg>
 
-                <ul className="py-3 w-max rounded-lg bg-white shadow-menu absolute right-3/4 top-3">
+                <ul
+                  onClick={hideMenu}
+                  className="menu hidden opacity-0 h-0 py-3 w-max rounded-lg bg-white shadow-menu absolute right-3/4 top-3"
+                >
                   <li
                     className="py-2 px-4 flex gap-2 items-center cursor-pointer hover:bg-buyellow hover:bg-opacity-25"
-                    onClick={() => openEditNameModal(card.id)}
+                    onClick={() => {
+                      setEditNameID(card?.id);
+                      setEditNameVal(card?.holdersName);
+
+                      setOpenModal(true);
+                    }}
                   >
                     <svg
                       width="15"
@@ -251,7 +245,10 @@ function BUCards() {
 
                     <span className="text-10">Edit Name</span>
                   </li>
-                  <li className="py-2 px-4 flex gap-2 items-center cursor-pointer hover:bg-buyellow hover:bg-opacity-25">
+                  <li
+                    onClick={() => printCard(card?.id)}
+                    className="py-2 px-4 flex gap-2 items-center cursor-pointer hover:bg-buyellow hover:bg-opacity-25"
+                  >
                     <svg
                       width="15"
                       height="15"
@@ -297,22 +294,45 @@ function BUCards() {
           onSubmit={handleEditName}
         >
           <h3 className="text-xl font-semibold mb-5">
-            Edit Name on card for printing... {editNameID}
+            Edit name on card for printing...
           </h3>
 
           <input
             type="text"
             placeholder="First Name"
+            value={editNameVal}
+            onChange={(e) => setEditNameVal(e.target.value)}
             className="w-full py-4 px-6 bg-platinum text-romanSilver font-semibold mb-8 border-0 text-lg"
           />
 
           <button
             type="submit"
-            className="w-full py-4 px-6 bg-buyellow text-white font-semibold text-lg transition hover:shadow-lg"
+            className="w-full py-4 px-6 bg-buyellow text-white font-semibold text-lg transition duration-500 hover:shadow-lg"
           >
             Request Change Name
           </button>
         </form>
+      </Modal>
+
+      <Modal
+        showModal={openSuccessModal}
+        closeModal={() => setOpenSuccessModal(false)}
+      >
+        <div className="bg-white rounded-lg py-11 px-8 shadow-lg">
+          <h3 className="text-xl font-semibold mb-5 text-center">
+            Changes Saved
+          </h3>
+
+          <div className="flex items-center justify-center gap-4">
+            <button
+              onClick={() => setOpenSuccessModal(false)}
+              type="submit"
+              className=" py-2 px-6 rounded-lg bg-buyellow text-white font-semibold text-lg transition duration-500 hover:shadow-xl"
+            >
+              OK
+            </button>
+          </div>
+        </div>
       </Modal>
     </>
   );

@@ -27,7 +27,7 @@ function CardSettings() {
           />
           <button
             type="submit"
-            className="rounded-lg font-semibold bg-buyellow text-white py-3 px-4 lg:py-4 lg:px-6 text-sm lg:text-base"
+            className="rounded-lg font-semibold bg-buyellow text-white py-3 px-4 lg:py-4 lg:px-6 text-sm lg:text-base transition duration-500 hover:shadow-lg"
           >
             Update
           </button>
@@ -43,7 +43,7 @@ function CardSettings() {
           />
           <button
             type="submit"
-            className="rounded-lg font-semibold bg-buyellow text-white py-3 px-4 lg:py-4 lg:px-6 text-sm lg:text-base"
+            className="rounded-lg font-semibold bg-buyellow text-white py-3 px-4 lg:py-4 lg:px-6 text-sm lg:text-base transition duration-500 hover:shadow-lg"
           >
             Update
           </button>
@@ -59,7 +59,7 @@ function CardSettings() {
           />
           <button
             type="submit"
-            className="rounded-lg font-semibold bg-buyellow text-white py-3 px-4 lg:py-4 lg:px-6 text-sm lg:text-base"
+            className="rounded-lg font-semibold bg-buyellow text-white py-3 px-4 lg:py-4 lg:px-6 text-sm lg:text-base transition duration-500 hover:shadow-lg"
           >
             Update
           </button>

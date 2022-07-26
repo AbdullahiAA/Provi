@@ -1,32 +1,29 @@
 import React, { useEffect, useState } from "react";
 import PageLayout from "../../components/PageLayout/PageLayout";
 import cardImg from "../../assets/CardImg.png";
+import useDropdown from "../../hooks/useDropdown";
 
 function ICPrintedCards() {
+  const { hideMenu, showMenu } = useDropdown();
+
   const [cards, setCards] = useState([]);
+  const [branches, setBranches] = useState([]);
+  const [selectedBranch, setSelectedBranch] = useState(
+    "Ikeja GRA Lagos, Nigeria"
+  );
 
-  function openMenu(e) {
-    const parentElement = e.target.parentElement;
-    const targetMenu =
-      parentElement.children[parentElement.children.length - 1];
-
-    if (targetMenu.classList.contains("hidden") === false) {
-      targetMenu.classList.add("hidden");
-    } else {
-      closeAllMenus();
-      targetMenu.classList.remove("hidden");
-    }
-  }
-
-  function closeAllMenus() {
-    const menus = document.querySelectorAll(".menu");
-
-    menus.forEach((menu) => {
-      if (menu.classList.contains("hidden") === false) {
-        menu.classList.add("hidden");
-      }
-    });
-  }
+  useEffect(() => {
+    setBranches([
+      "Ikeja GRA Lagos, Nigeria",
+      "Lekki Phase 1 Lagos, Nigeria",
+      "Ikoyi Lagos, Nigeria",
+      "Mogodo Lagos, Nigeria",
+      "Abuja Wasu Lagos, Nigeria",
+      "Ikeja GRA 1 Lagos, Nigeria",
+      "Ikeja GRA 2 Lagos, Nigeria",
+      "Ikeja GRA 3 Lagos, Nigeria",
+    ]);
+  }, []);
 
   useEffect(() => {
     setCards([
@@ -125,11 +122,11 @@ function ICPrintedCards() {
       <div className="grid grid-cols-2 gap-4 lg:flex lg:gap-2 mb-6">
         <div className="relative">
           <div
-            onClick={openMenu}
+            onClick={showMenu}
             className="min-w-max rounded-lg bg-brightGray p-4 lg:px-7 w-full text-sm lg:text-base flex items-center justify-between gap-4 cursor-pointer"
           >
             <span className="pointer-events-none select-none">
-              Ikeja GRA Lagos, Nigeria
+              {selectedBranch}
             </span>
             <svg
               width="13"
@@ -188,31 +185,23 @@ function ICPrintedCards() {
             </svg>
           </div>
 
-          <ul className="menu hidden rounded-lg shadow-menu z-20 py-2 mb-2 w-full bg-white border-1 absolute top-full rigfht-1/2">
-            <li className="p-2.5 flex justify-center items-center text-10 font-bold font-poppins cursor-pointer bg-buyellow text-white transition">
-              Ikeja GRA Lagos, Nigeria
-            </li>
-            <li className="p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
-              Lekki Phase 1 Lagos, Nigeria
-            </li>
-            <li className="p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
-              Ikoyi Lagos, Nigeria
-            </li>
-            <li className="p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
-              Mogodo Lagos, Nigeria
-            </li>
-            <li className="p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
-              Abuja Wasu Lagos, Nigeria
-            </li>
-            <li className="p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
-              Ikeja GRA Lagos, Nigeria
-            </li>
-            <li className="p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
-              Ikeja GRA Lagos, Nigeria
-            </li>
-            <li className="p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer hover:bg-buyellow hover:bg-opacity-16 transition">
-              Ikeja GRA Lagos, Nigeria
-            </li>
+          <ul
+            onClick={hideMenu}
+            className="menu hidden opacity-0 h-0 rounded-lg shadow-menu z-20 py-2 mb-2 w-full bg-white border-1 absolute top-full transition duration-500"
+          >
+            {branches?.map((branch, key) => (
+              <li
+                key={key}
+                onClick={() => setSelectedBranch(branch)}
+                className={`p-2.5 flex justify-center items-center text-10 font-medium font-poppins cursor-pointer transition ${
+                  selectedBranch === branch
+                    ? "bg-buyellow text-white"
+                    : "hover:bg-buyellow hover:bg-opacity-16 hover:text-black"
+                }`}
+              >
+                {branch}
+              </li>
+            ))}
           </ul>
         </div>
 

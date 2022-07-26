@@ -49,9 +49,9 @@ function CardInfo() {
               <path
                 d="M23 9L12 20L7 15"
                 stroke="#34CDA7"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                stokeWidth="2"
+                stokeLinecap="round"
+                stokeLinejoin="round"
               />
             </svg>
 
