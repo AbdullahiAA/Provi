@@ -17,6 +17,7 @@ import BMSettings from "./pages/BMSettings/BMSettings";
 import BUSettings from "./pages/BUSettings/BUSettings";
 import BUCards from "./pages/BUCards/BUCards";
 import BUPrintedCards from "./pages/BUPrintedCards/BUPrintedCards";
+import BMDashboard from "./pages/BMDashboard/BMDashboard";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path="/bm-settings" exact>
           <BMSettings />
+        </Route>
+        <Route path="/bm-dashboard" exact>
+          <BMDashboard />
         </Route>
         <Route path="/bu-settings" exact>
           <BUSettings />
