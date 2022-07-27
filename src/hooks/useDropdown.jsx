@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 function useDropdown() {
   function showMenu(e) {
     const menu = e.target.nextElementSibling.classList;
@@ -27,6 +29,27 @@ function useDropdown() {
       openMenu.classList.add("opacity-0", "h-0");
     }
   }
+
+  useEffect(() => {
+    const keyPressToHideMenu = document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") hideMenu();
+    });
+
+    const clickAnywhereToHideMenu = document.addEventListener(
+      "click",
+      (e) => {
+        const openMenu = document.querySelector(".menu.show");
+
+        if (openMenu) hideMenu();
+      },
+      true
+    );
+
+    return () => {
+      document.removeEventListener("keydown", keyPressToHideMenu);
+      document.removeEventListener("click", clickAnywhereToHideMenu);
+    };
+  }, []);
 
   return {
     showMenu,

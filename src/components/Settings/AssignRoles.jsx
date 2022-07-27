@@ -16,7 +16,7 @@ function AssignRoles() {
   const [openRemoveModal, setOpenRemoveModal] = useState(false);
   const [openSuccessModal, setOpenSuccessModal] = useState(false);
 
-  const [openNewBranchModal, setOpenNewBranchModal] = useState(true);
+  const [openNewBranchModal, setOpenNewBranchModal] = useState(false);
 
   function assignRole(userID, newRole) {
     console.log(userID, newRole);
@@ -246,8 +246,9 @@ function AssignRoles() {
               <button className="flex gap-3 items-center py-3 px-4 font-semibold bg-white rounded-xl shadow-2xl transition duration-500 hover:scale-105">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
                   fill="none"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2}
